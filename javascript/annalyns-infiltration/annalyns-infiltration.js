@@ -67,9 +67,9 @@ export function canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake) {
  * @returns {boolean} Whether or not you can send a signal to the prisoner.
  */
 export function canSignalPrisoner(archerIsAwake, prisonerIsAwake) {
-  throw new Error('Remove this line and implement the function');
-}
-
+  if (archerIsAwake === false && prisonerIsAwake === true) {
+    return true;
+  } else { return false; }}
 /**
  * The final stage in the plan: freeing Annalyn's best friend.
  *
@@ -86,5 +86,7 @@ export function canFreePrisoner(
   prisonerIsAwake,
   petDogIsPresent,
 ) {
-  throw new Error('Remove this line and implement the function');
+  return (prisonerIsAwake && !knightIsAwake && !archerIsAwake)
+  || !archerIsAwake && petDogIsPresent;
+
 }
